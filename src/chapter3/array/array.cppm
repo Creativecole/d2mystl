@@ -13,9 +13,20 @@ namespace mySTL::impl
         T data[CAPACITY]{};
 
     public:
-        constexpr std::size_t size() const noexcept { return N; }
-        constexpr std::size_t capacity() const noexcept { return CAPACITY; }
-        constexpr bool empty() const noexcept { return N == 0; }
+        constexpr std::size_t size() const noexcept 
+        { 
+            return N; 
+        }
+
+        constexpr std::size_t capacity() const noexcept 
+        { 
+            return CAPACITY; 
+        }
+
+        constexpr bool empty() const noexcept 
+        { 
+            return N == 0; 
+        }
     };
     
 } // namespace mySTL::impl
@@ -27,8 +38,15 @@ export namespace mySTL
     class Array : public impl::ArrayImpl<T, N>
     {
     public:
-        constexpr T& operator[](std::size_t index) noexcept { return this->data[index]; }
-        constexpr const T& operator[](std::size_t index) const noexcept { return this->data[index]; }
+        constexpr T& operator[](std::size_t index) noexcept 
+        { 
+            return this->data[index]; 
+        }
+
+        constexpr const T& operator[](std::size_t index) const noexcept 
+        { 
+            return this->data[index]; 
+        }
 
         constexpr T& at(std::size_t index)
         {
@@ -45,10 +63,24 @@ export namespace mySTL
         using Iterator = T*;
         using ConstIterator = const T*;
 
-        constexpr Iterator begin() noexcept { return this->data; }
-        constexpr Iterator end() noexcept { return this->data + N; }
-        constexpr ConstIterator begin() const noexcept { return this->data; }
-        constexpr ConstIterator end() const noexcept { return this->data + N; }
+        constexpr Iterator begin() noexcept 
+        { 
+            return this->data; 
+        }
+
+        constexpr Iterator end() noexcept { 
+            return this->data + N; 
+        }
+
+        constexpr ConstIterator begin() const noexcept 
+        { 
+            return this->data; 
+        }
+
+        constexpr ConstIterator end() const noexcept 
+        { 
+            return this->data + N; 
+        }
     };
 
     template <typename T>
@@ -58,10 +90,25 @@ export namespace mySTL
         using Iterator = T*;
         using ConstIterator = const T*;
 
-        constexpr Iterator begin() noexcept { return this->data; }
-        constexpr Iterator end() noexcept { return this->data; }
-        constexpr ConstIterator begin() const noexcept { return this->data; }
-        constexpr ConstIterator end() const noexcept { return this->data; }
+        constexpr Iterator begin() noexcept 
+        { 
+            return this->data; 
+        }
+
+        constexpr Iterator end() noexcept 
+        { 
+            return this->data; 
+        }
+
+        constexpr ConstIterator begin() const noexcept 
+        { 
+            return this->data;
+        }
+
+        constexpr ConstIterator end() const noexcept 
+        { 
+            return this->data; 
+        }
     };
 
 } // namespace mySTL
