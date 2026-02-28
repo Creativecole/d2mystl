@@ -1,5 +1,6 @@
 export module mySTL.array;
 import std;
+import mySTL.range;
 
 namespace mySTL::impl
 {
@@ -65,21 +66,21 @@ export namespace mySTL
 
         constexpr Iterator begin() noexcept 
         { 
-            return this->data; 
+            return range::begin(this->data);
         }
 
         constexpr Iterator end() noexcept { 
-            return this->data + N; 
+            return range::end(this->data);
         }
 
         constexpr ConstIterator begin() const noexcept 
         { 
-            return this->data; 
+            return range::begin(this->data);
         }
 
         constexpr ConstIterator end() const noexcept 
         { 
-            return this->data + N; 
+            return range::end(this->data);
         }
     };
 
