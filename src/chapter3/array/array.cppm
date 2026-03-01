@@ -7,7 +7,7 @@ namespace mySTL::impl {
 template <typename T, std::size_t N>
 class ArrayImpl {
 protected:
-    static constexpr std::size_t CAPACITY = N == 0 ? 1 : N;
+    static constexpr std::size_t CAPACITY = (N == 0) ? 1 : N;
 
     T data[CAPACITY] {};
 
