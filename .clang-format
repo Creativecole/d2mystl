@@ -1,8 +1,19 @@
-BasedOnStyle: LLVM
+---
+Language: Cpp
+Standard: Latest
 
-IndentWidth: 4
-TabWidth: 4
-UseTab: Never
+IndentWidth: 4                           # 缩进宽度：4空格
+TabWidth: 4                              # Tab宽度：4空格
+UseTab: Never                            # 不使用Tab，只用空格
+AccessModifierOffset: -4                 # 访问修饰符(public/private)向左缩进4空格
 
-BreakBeforeBraces: Allman
-ColumnLimit: 0
+BreakBeforeBraces: Attach                # 大括号附加在声明同行（如 if (x) {）
+
+PointerAlignment: Left                   # 指针/引用符号紧贴类型（int* p）
+
+SpaceBeforeCpp11BracedList: true         # 在 ) 和 { 之间加空格：func( {1, 2} )
+Cpp11BracedListStyle: false              # 保留 {} 内部空格：{ 1, 2, 3 }
+
+AlwaysBreakTemplateDeclarations: Yes     # 模板声明总是换行：template<typename T>\nclass X
+
+AllowShortFunctionsOnASingleLine: Empty  # 只有空函数可以单行

@@ -1,5 +1,6 @@
 export module mySTL.array;
 import std;
+import mySTL.range;
 
 namespace mySTL::impl {
 
@@ -52,9 +53,48 @@ public:
         }
         return this->data[index];
     }
+
+    using Iterator = T*;
+    using ConstIterator = const T*;
+
+    constexpr Iterator begin() noexcept {
+        return range::begin(this->data);
+    }
+
+    constexpr Iterator end() noexcept {
+        return range::end(this->data);
+    }
+
+    constexpr ConstIterator begin() const noexcept {
+        return range::begin(this->data);
+    }
+
+    constexpr ConstIterator end() const noexcept {
+        return range::end(this->data);
+    }
 };
 
 template <typename T>
-class Array<T, 0> : public impl::ArrayImpl<T, 0> {};
+class Array<T, 0> : public impl::ArrayImpl<T, 0> {
+public:
+    using Iterator = T*;
+    using ConstIterator = const T*;
+
+    constexpr Iterator begin() noexcept {
+        return this->data;
+    }
+
+    constexpr Iterator end() noexcept {
+        return this->data;
+    }
+
+    constexpr ConstIterator begin() const noexcept {
+        return this->data;
+    }
+
+    constexpr ConstIterator end() const noexcept {
+        return this->data;
+    }
+};
 
 } // namespace mySTL
